@@ -6,6 +6,7 @@ var languageMaps = map[string]string{
 	"en":    DefaultLanguage,
 	"zh-tw": "Traditional Chinese",
 	"zh-cn": "Simplified Chinese",
+	"ja":    "Japanese",
 }
 
 // GetLanguage returns the language name for the given language code,
