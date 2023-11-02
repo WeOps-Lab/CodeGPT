@@ -160,7 +160,7 @@ var commitCmd = &cobra.Command{
 				", TotalTokens: " + strconv.Itoa(resp.Usage.TotalTokens),
 			)
 		}
-
+		summaryPrix := ""
 		// Get summarize title from diff datas
 		if _, ok := data[prompt.SummarizeTitleKey]; !ok {
 			out, err := util.GetTemplateByString(
@@ -201,7 +201,7 @@ var commitCmd = &cobra.Command{
 				return err
 			}
 			color.Cyan("We are trying to get conventional commit prefix")
-			summaryPrix := ""
+
 			if client.AllowFuncCall() {
 				resp, err := client.CreateFunctionCall(cmd.Context(), out, openai.SummaryPrefixFunc)
 				if err != nil {
@@ -226,7 +226,7 @@ var commitCmd = &cobra.Command{
 					", TotalTokens: " + strconv.Itoa(resp.Usage.TotalTokens),
 				)
 			}
-			data[prompt.SummarizePrefixKey] = summaryPrix
+
 		}
 
 		var commitMessage string
@@ -286,8 +286,7 @@ var commitCmd = &cobra.Command{
 		}
 
 		// unescape html entities in commit message
-		commitMessage = html.UnescapeString(commitMessage)
-
+		commitMessage = summaryPrix + html.UnescapeString(commitMessage)
 		// Output commit summary data from AI
 		color.Yellow("================Commit Summary====================")
 		color.Yellow("\n" + strings.TrimSpace(commitMessage) + "\n\n")
