@@ -5,17 +5,15 @@ Determine the best label for the commit.
 
 Here are the labels you can choose from:
 
-- build: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
-- chore: Updating libraries, copyrights or other repo setting, includes updating dependencies.
-- ci: Changes to our CI configuration files and scripts (example scopes: Travis, Circle, GitHub Actions)
-- docs: Non-code changes, such as fixing typos or adding new documentation (example scopes: Markdown file)
-- feat: a commit of the type feat introduces a new feature to the codebase
-- fix: A commit of the type fix patches a bug in your codebase
-- perf: A code change that improves performance
-- refactor: A code change that neither fixes a bug nor adds a feature
-- style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
-- test: Adding missing tests or correcting existing tests
-
+- feature: A commit of the type feature introduces a new feature to the codebase (this correlates with MINOR in semantic versioning). chinese: 新特性
+- bugfix: A commit of the type bugfix patches a bug in your codebase (this correlates with PATCH in semantic versioning). chinese: 线上功能bug
+- minor: A commit of the type minor introduces a backwards-compatible change. chinese: 不重要的修改（换行，拼写错误等）
+- optimization: A commit of the type optimization introduces a change that is not backwards-compatible but does not affect the public API (in a library) or user interface (in a CLI application). chinese: 功能优化
+- sprintfix: A commit of the type sprintfix introduces a backwards-compatible bug fix. chinese: 未上线代码修改（功能模块术上线部分bug）
+- refactor: A commit of the type refactor introduces a code change that neither fixes a bug nor adds a feature. chinese: 功能重构
+- test: A commit of the type test introduces changes to tests; no production code change. chinese: 增加测试代码
+- docs: A commit of the type docs introduces changes to the documentation. chinese: 编写文档
+- merge: A commit of the type merge is created by the SCM system (e.g. git merge) and does not reflect a physical change made by the developer. chinese: 分支合并及冲突解决
 
 THE FILE SUMMARIES:
 ###
